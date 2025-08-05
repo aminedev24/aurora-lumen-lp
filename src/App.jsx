@@ -6,7 +6,7 @@ import Features from './components/features';
 import About from './components/about';
 import CTA from './components/cta';
 import Footer from './components/footer';
-import ChatPage from './components/chat/ChatPage'; // Assuming ChatPage is here
+import ChatPage from './components/chat/chatWindow'; // Assuming ChatPage is here
 import './index.css';
 
 // A single component to hold all of your landing page sections.
