@@ -1,0 +1,71 @@
+// src/components/CTA.jsx
+import { useState } from 'react';
+
+export default function CTA() {
+  const [message, setMessage] = useState('');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage('Subscribing...');
+    // TODO: replace URL with your real endpoint
+    try {
+      const res = await fetch('/register_newsletter.php', {
+        method: 'POST',
+        body: new FormData(e.target),
+      });
+      const json = await res.json();
+      setMessage(json.message);
+      if (json.success) e.target.reset();
+    } catch {
+      setMessage('An error occurred. Please try again.');
+    }
+  };
+
+  return (
+    <section
+      id="cta"
+      className="bg-primary text-white py-16 px-6 md:px-10 lg:px-16
+                 text-center rounded-xl shadow-2xl mx-4 md:mx-auto
+                 max-w-6xl mb-16"
+    >
+      <h3 className="text-3xl md:text-4xl font-bold mb-6">
+        Stay Updated with Aurora Nexus!
+      </h3>
+      <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
+        Join our newsletter to get the latest news, updates, and early access to
+        new features. Don’t miss out on the future of AI!
+      </p>
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-xl mx-auto flex flex-col sm:flex-row gap-4"
+      >
+        <input
+          name="email"
+          type="email"
+          placeholder="Enter your email address"
+          required
+          className="flex-grow p-4 rounded-full text-gray-800 focus:outline-none
+                     focus:ring-4 focus:ring-secondary focus:ring-opacity-75
+                     transition duration-300 shadow-lg"
+        />
+        <button
+          type="submit"
+          className="bg-white text-primary hover:bg-gray-100 font-bold
+                     py-4 px-10 rounded-full shadow-xl transition duration-300
+                     transform hover:scale-105 focus:outline-none
+                     focus:ring-4 focus:ring-white focus:ring-opacity-50"
+        >
+          Subscribe Now
+        </button>
+      </form>
+      {message && (
+        <p
+          className={`mt-6 text-base font-semibold ${
+            message.toLowerCase().includes('error') ? 'text-accent' : 'text-secondary-light'
+          }`}
+        >
+          {message}
+        </p>
+      )}
+    </section>
+  );
+}

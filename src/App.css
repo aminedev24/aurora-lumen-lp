@@ -1,0 +1,19 @@
+ /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Styles for the mobile navigation menu */
+        .mobile-nav-menu {
+            transition: all 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .mobile-nav-menu.open {
+            max-height: 200px; /* Adjust as needed to fit content */
+        }
+
+        /* Dark mode specific styles */
+        html.dark body {
+            background-color: #1a202c; /* Dark background */
+            color: #e2e8f0; /* Light text */
+        }
