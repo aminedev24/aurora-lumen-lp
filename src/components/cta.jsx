@@ -17,7 +17,7 @@ const CTA = () => {
 
     return (
         <section id="cta" className="bg-primary text-white py-16 px-6 md:px-10 lg:px-16 text-center rounded-xl shadow-2xl mx-4 md:mx-auto max-w-6xl mb-16">
-            <h3 className="text-3xl md:text-4xl font-bold mb-6">Stay Updated with Aurora Nexus!</h3>
+            <h3 className="text-3xl md:text-4xl font-bold mb-6">Stay Updated with Aurora Lumen!</h3>
             <p className="text-lg md:text-xl mb-8 opacity-90 max-w-3xl mx-auto">
                 Join our newsletter to get the latest news, updates, and early access to new features. Don't miss out on the future of AI!
             </p>

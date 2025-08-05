@@ -2,7 +2,7 @@
 const featuresData = [
     {
         title: "Intelligent AI Model",
-        description: "Powered by a cutting-edge AI, Aurora Nexus understands context, generates coherent responses, and learns from your interactions.",
+        description: "Powered by a cutting-edge AI, Aurora Lumen understands context, generates coherent responses, and learns from your interactions.",
         icon: (
             <svg className="w-12 h-12 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 7h2m-2 10h2M19 7h2m-2 10h2M4 12H2m20 0h-2M12 4.5v15M12 2a1 1 0 00-1 1v18a1 1 0 001 1 1 1 0 001-1V3a1 1 0 00-1-1z"></path>
