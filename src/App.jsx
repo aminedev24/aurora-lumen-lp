@@ -6,11 +6,11 @@ import Features from './components/features';
 import About from './components/about';
 import CTA from './components/cta';
 import Footer from './components/footer';
-import ChatPage from './components/chat/chatWindow'; // Import the new ChatPage component
+import ChatPage from './components/chat/ChatPage'; // Assuming ChatPage is here
 import './index.css';
 
 // A single component to hold all of your landing page sections.
-const HomePage = ({ theme, setTheme }) => (
+const HomePage = () => (
   <>
     <Hero />
     <Features />
@@ -20,6 +20,18 @@ const HomePage = ({ theme, setTheme }) => (
   </>
 );
 
+// The new ChatPage component.
+const ChatPage = () => (
+  <div className="flex flex-col items-center justify-center p-8 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+    <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Chat Page</h1>
+    <p className="text-lg text-gray-600 dark:text-gray-400">
+      Welcome to the chat! You can add your chat functionality here.
+    </p>
+    <Link to="/" className="mt-6 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition-colors">
+      Go to Home
+    </Link>
+  </div>
+);
 
 // The main App component now handles the routing.
 function App() {
@@ -34,19 +46,14 @@ function App() {
   }, [theme]);
 
   return (
-    // Set the basename dynamically using Vite's environment variable
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    // We are now explicitly setting the basename to '/'
+    // to match the Vite configuration and the server setup.
+    <BrowserRouter basename="/">
       <div className="bg-white dark:bg-gray-900 text-gray-800 dark:text-dark-text min-h-screen">
-        {/* The Header is placed outside of the Routes so it appears on all pages. */}
         <Header theme={theme} setTheme={setTheme} />
-
-        {/* The Routes component defines which component to render based on the URL. */}
-        <main className="">
+        <main className="container mx-auto p-4 flex-grow">
           <Routes>
-            {/* The Home page route */}
-            <Route path="/" element={<HomePage theme={theme} setTheme={setTheme} />} />
-            
-            {/* The new Chat page route */}
+            <Route path="/" element={<HomePage />} />
             <Route path="/chat" element={<ChatPage />} />
           </Routes>
         </main>
